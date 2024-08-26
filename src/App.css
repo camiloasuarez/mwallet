@@ -316,10 +316,12 @@ header {
 .saveButton {
   background-color: white;
   color: #162b46;
+  margin-bottom: 10px;
 }
 
 .goBackButton {
   background-color: #1677ff;
   color: white;
   border: none;
+  margin-bottom: 20px;
 }
