@@ -9,6 +9,7 @@ import RecoverAccount from "./components/RecoverAccount";
 import WalletView from "./components/WalletView";
 import Sidebar from "./components/Sidebar"; // Asegúrate de que la ruta sea correcta
 import Vault from "./components/Vault"; // Importa el nuevo componente Vault
+import NewRecord from "./components/NewRecord"; // Importa el nuevo componente NewRecord
 import { SidebarProvider, SidebarContext } from './SidebarContext'; // Importa el contexto
 import { MenuOutlined } from "@ant-design/icons"; // Importa el ícono de menú
 
@@ -104,6 +105,7 @@ function AppContent({
             }
           />
           <Route path="/vault" element={<Vault selectedChain={selectedChain} setSelectedChain={setSelectedChain} />} /> {/* Añade la nueva ruta aquí */}
+          <Route path="/new-record" element={<NewRecord />} /> {/* Añade la nueva ruta aquí */}
         </Routes>
       ) : (
         <Routes>
@@ -127,6 +129,7 @@ function AppContent({
             }
           />
           <Route path="/vault" element={<Vault selectedChain={selectedChain} setSelectedChain={setSelectedChain} />} /> {/* Añade la nueva ruta aquí */}
+          <Route path="/new-record" element={<NewRecord />} /> {/* Añade la nueva ruta aquí */}
         </Routes>
       )}
     </div>

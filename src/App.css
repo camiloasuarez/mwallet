@@ -276,7 +276,44 @@ header {
   padding-left: 20px; /* Añade un margen izquierdo a los elementos de la lista */
 }
 
-/* App.css */
 .vault-content {
   color: white;
+}
+
+/* ###################### */
+.new-record-content {
+  color: white;
+  text-align: center;
+  margin-top: -30px;
+}
+
+.new-record-content .sendRow, .new-record-content .inputRow {
+  margin-bottom: 20px; /* Añade más espacio entre los elementos */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  width: 100%;
+}
+
+.new-record-content .typeSelect {
+  width: 100%; /* Ajusta el ancho del selector */
+}
+
+.buttonRow {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  margin-top: 10px;
+}
+
+.saveButton {
+  background-color: white;
+  color: #162b46;
+}
+
+.goBackButton {
+  background-color: #1677ff;
+  color: white;
+  border: none;
 }
