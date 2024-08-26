@@ -43,7 +43,7 @@ function AppContent({
   setSelectedChain,
   sidebarRef
 }) {
-  const { isSidebarVisible, toggleSidebar } = useContext(SidebarContext);
+  const { isSidebarVisible, toggleSidebar, isMenuButtonVisible } = useContext(SidebarContext);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -65,9 +65,11 @@ function AppContent({
 
   return (
     <div className="App">
-      <button className="menuButton" onClick={toggleSidebar}>
-        <MenuOutlined />
-      </button>
+      {isMenuButtonVisible && (
+        <button className="menuButton" onClick={toggleSidebar}>
+          <MenuOutlined />
+        </button>
+      )}
       {isSidebarVisible && <div className="overlay" onClick={toggleSidebar}></div>}
       <div ref={sidebarRef}>
         <Sidebar onClose={toggleSidebar} isVisible={isSidebarVisible} />

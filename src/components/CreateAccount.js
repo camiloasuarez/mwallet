@@ -1,25 +1,31 @@
-import React from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { Button, Card } from "antd";
 import { ExclamationCircleOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 import { ethers } from "ethers";
+import { SidebarContext } from '../SidebarContext'; // Ajusta la ruta según sea necesario
 
-function CreateAccount({setWallet, setSeedPhrase}) {
+function CreateAccount({ setWallet, setSeedPhrase }) {
   const [newSeedPhrase, setNewSeedPhrase] = useState(null);
   const navigate = useNavigate();
+  const { hideMenuButton, showMenuButton } = useContext(SidebarContext);
 
-  function generateWallet(){
+  useEffect(() => {
+    hideMenuButton(); // Oculta el botón de menú al montar el componente
+    return () => {
+      showMenuButton(); // Muestra el botón de menú al desmontar el componente
+    };
+  }, [hideMenuButton, showMenuButton]);
+
+  function generateWallet() {
     const mnemonic = ethers.Wallet.createRandom().mnemonic.phrase;
-    setNewSeedPhrase(mnemonic)
+    setNewSeedPhrase(mnemonic);
   }
 
-
-  function setWalletAndMnemonic(){
+  function setWalletAndMnemonic() {
     setSeedPhrase(newSeedPhrase);
-    setWallet(ethers.Wallet.fromPhrase(newSeedPhrase).address)
+    setWallet(ethers.Wallet.fromPhrase(newSeedPhrase).address);
   }
-
 
   return (
     <>
@@ -39,7 +45,7 @@ function CreateAccount({setWallet, setSeedPhrase}) {
           Generate Seed Phrase
         </Button>
         <Card className="seedPhraseContainer">
-         {newSeedPhrase && <pre style={{whiteSpace: "pre-wrap"}}>{newSeedPhrase}</pre>}
+          {newSeedPhrase && <pre style={{ whiteSpace: "pre-wrap" }}>{newSeedPhrase}</pre>}
         </Card>
         <Button
           className="frontPageButton"
@@ -48,7 +54,7 @@ function CreateAccount({setWallet, setSeedPhrase}) {
         >
           Open Your New Wallet
         </Button>
-        <p className="frontPageBottom" onClick={()=>navigate("/")}>
+        <p className="frontPageBottom" onClick={() => navigate("/")}>
           Back Home
         </p>
       </div>
