@@ -246,7 +246,7 @@ header {
 }
 
 .menu-icon {
-  margin-right: 10px;
+  margin-right: 100px;
 }
 
 @media (max-width: 768px) {
@@ -263,4 +263,20 @@ header {
   .walletView {
     width: 100%;
   }
+}
+
+.nk-menu {
+  list-style-type: none; /* Elimina los puntos de la lista */
+  padding: 0;
+}
+
+.nk-menu li {
+  display: flex;
+  align-items: center;
+  padding-left: 20px; /* Añade un margen izquierdo a los elementos de la lista */
+}
+
+/* App.css */
+.vault-content {
+  color: white;
 }
