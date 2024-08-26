@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
 import { Button } from "antd";
 import { useNavigate } from "react-router-dom";
+import { SidebarContext } from '../SidebarContext'; // Ajusta la ruta según sea necesario
 
 function Home() {
   const navigate = useNavigate();
+  const { hideMenuButton, showMenuButton } = useContext(SidebarContext);
+
+  useEffect(() => {
+    hideMenuButton(); // Oculta el botón de menú al montar el componente
+    return () => {
+      showMenuButton(); // Muestra el botón de menú al desmontar el componente
+    };
+  }, [hideMenuButton, showMenuButton]);
 
   return (
     <>
